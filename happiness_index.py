@@ -17,5 +17,6 @@ if len(uploaded_files) > 0:
             st.write(df['2015'])
     
         else:
+            st.write(uploaded_file.type)
             uploaded_df = pd.read_csv(uploaded_file)
             st.write(uploaded_df)
