@@ -19,7 +19,9 @@ def activate_sidebar(df):
                 df['2019'] = pd.read_csv(zf.open('2019.csv')); df['2020'] = pd.read_csv(zf.open('2020.csv'))
                 df['2021'] = pd.read_csv(zf.open('2021.csv')); df['2022'] = pd.read_csv(zf.open('2022.csv'))
 
+                st.title('World Happiness Dataset in 2015')
                 st.write(df['2015'])
+                st.title('World Happiness Dataset in 2022')
                 st.write(df['2022'])
 
             elif uploaded_file.type == 'text/csv':
