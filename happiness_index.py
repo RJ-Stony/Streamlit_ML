@@ -30,4 +30,6 @@ activate_sidebar()
 
 for key in df:
     st.title(key + ' Columns')
-    st.write(df[key].columns)
+    df[key].columns = pd.DataFrame(
+        columns=('columns'))
+    st.dataframe(df[key].columns)
