@@ -29,4 +29,4 @@ def activate_sidebar():
 activate_sidebar()
 
 for key in df:
-  print(key, df[key].columns) # 각 데이터프레임의 컬럼 확인
+  st.write(key, df[key].columns)
