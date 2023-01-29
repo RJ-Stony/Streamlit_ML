@@ -29,4 +29,4 @@ def activate_sidebar():
 activate_sidebar()
 
 for key in df:
-  st.write(key, df[key].columns)
+  st.text(key, df[key].columns)
