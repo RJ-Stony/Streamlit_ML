@@ -10,7 +10,7 @@ with st.sidebar:
 # Check if files were uploaded
 if len(uploaded_files) > 0:
     for uploaded_file in uploaded_files:
-        print(uploaded_file.type)
+        st.write(uploaded_file.type)
         # If zip file, extract contents
         if uploaded_file.type == 'application/zip':
             zf = zipfile.ZipFile(uploaded_file)
