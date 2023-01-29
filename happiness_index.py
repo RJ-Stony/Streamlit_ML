@@ -27,16 +27,19 @@ def activate_sidebar(df):
                 st.write(uploaded_df)
 
 def activate_tabs(df):
+    if df is None:
+        st.error('파일을 업로드해주세요!', icon="🚨")
+        
     tab1, tab2, tab3 = st.tabs(['2015 / 2016 / 2017', '2018 / 2019 / 2020', '2021 / 2022'])
 
     with tab1:
         col1, col2, col3 = st.columns(3)
         with col1:
             st.title('2015' + ' Columns')
-            st.dataframe(df['2015'].columns)
+            st.dataframe(df['2015'].columns, width=200)
         with col2:
             st.title('2016' + ' Columns')
-            st.dataframe(df['2016'].columns)
+            st.dataframe(df['2016'].columns, width=200)
         with col3:
             st.title('2017' + ' Columns')
             st.dataframe(df['2017'].columns)
