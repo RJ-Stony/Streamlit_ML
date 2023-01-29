@@ -28,14 +28,16 @@ def activate_sidebar():
 
 activate_sidebar()
 
-tab1, tab2, tab3 = st.tabs(['15/16/17', '18/19/20', '21/22'])
+tab1, tab2, tab3 = st.tabs(['2015 / 2016 / 2017', '2018 / 2019 / 2020', '2021 / 2022'])
 
 for key in df:
     temp = int(key)-2015
     if temp in [0, 1, 2]:
         with tab1:
-            st.title(key + ' Columns')
-            st.dataframe(df[key].columns)
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.title(key + ' Columns')
+                st.dataframe(df[key].columns)
     elif temp in [3, 4, 5]:
         with tab2:
             st.title(key + ' Columns')
