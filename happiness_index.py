@@ -16,6 +16,6 @@ if len(uploaded_files) > 0:
             df['2015'] = pd.read_csv(zf.open('2015.csv'))
             st.write(df['2015'])
     
-        elif uploaded_file.type == 'csv':
+        else:
             uploaded_df = pd.read_csv(uploaded_file)
             st.write(uploaded_df)
