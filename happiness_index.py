@@ -30,7 +30,7 @@ activate_sidebar()
 
 for key in df:
     tab1, tab2, tab3 = st.tabs(['15/16/17', '18/19/20', '21/22'])
-    temp = key - 2015
+    temp = int(key)-2015
     if temp in [0, 1, 2]:
         with tab1:
             st.title(key + ' Columns')
