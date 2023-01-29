@@ -3,13 +3,18 @@ import pandas as pd
 import zipfile
 
 with st.sidebar:
-    uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+    uploaded_files = st.file_uploader('CSV 파일을 업로드해주세요.', accept_multiple_files=True)
 
-with zipfile.ZipFile(uploaded_files, "r") as z:
-    z.extractall(".")
+# Check if files were uploaded
+if len(uploaded_files) > 0:
+    for uploaded_file in uploaded_files:
+        # If zip file, extract contents
+        if uploaded_file.type == 'application/zip':
+            with zipfile.ZipFile(file, "r") as z:
+                z.extractall(".")
+                st.write(z)
     
-    if z is not None:
-        uploaded_df = pd.read_csv(z)
-    st.write(uploaded_df)
-
-    
+        elif uploaded_file.type == 'csv':
+            uploaded_df = pd.read_csv(uploaded_file)
+        st.write(uploaded_df)
+        
