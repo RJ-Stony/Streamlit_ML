@@ -29,36 +29,36 @@ def activate_sidebar():
 def activate_tabs():
     tab1, tab2, tab3 = st.tabs(['2015 / 2016 / 2017', '2018 / 2019 / 2020', '2021 / 2022'])
 
-with tab1:
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.title('2015' + ' Columns')
-        st.dataframe(df['2015'].columns)
-    with col2:
-        st.title('2016' + ' Columns')
-        st.dataframe(df['2016'].columns)
-    with col3:
-        st.title('2017' + ' Columns')
-        st.dataframe(df['2017'].columns)
-with tab2:
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.title('2018' + ' Columns')
-        st.dataframe(df['2018'].columns)
-    with col2:
-        st.title('2019' + ' Columns')
-        st.dataframe(df['2019'].columns)
-    with col3:
-        st.title('2020' + ' Columns')
-        st.dataframe(df['2020'].columns)
-with tab3:
-    col1, col2 = st.columns(2)
-    with col1:
-        st.title('2021' + ' Columns')
-        st.dataframe(df['2021'].columns)
-    with col2:
-        st.title('2022' + ' Columns')
-        st.dataframe(df['2022'].columns)
+    with tab1:
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.title('2015' + ' Columns')
+            st.dataframe(df['2015'].columns)
+        with col2:
+            st.title('2016' + ' Columns')
+            st.dataframe(df['2016'].columns)
+        with col3:
+            st.title('2017' + ' Columns')
+            st.dataframe(df['2017'].columns)
+    with tab2:
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.title('2018' + ' Columns')
+            st.dataframe(df['2018'].columns)
+        with col2:
+            st.title('2019' + ' Columns')
+            st.dataframe(df['2019'].columns)
+        with col3:
+            st.title('2020' + ' Columns')
+            st.dataframe(df['2020'].columns)
+    with tab3:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.title('2021' + ' Columns')
+            st.dataframe(df['2021'].columns)
+        with col2:
+            st.title('2022' + ' Columns')
+            st.dataframe(df['2022'].columns)
                 
 activate_sidebar()
 activate_tabs()
