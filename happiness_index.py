@@ -1,18 +1,29 @@
 import streamlit as st
 import pandas as pd
 from zipfile import ZipFile
-from StringIO import StringIO
-from urllib import urlopen
+import streamlit.components.v1 as components
+
+#use domain name
+components.iframe('https://drive.google.com/file/d/1R17iOJIqiOsjKeU-cHZtzuCnyRCBgkwJ/view?usp=share_link')
 
 df = dict()
 
-resp = urlopen('https://drive.google.com/file/d/1R17iOJIqiOsjKeU-cHZtzuCnyRCBgkwJ/view?usp=share_link')
-zf = ZipFile(StringIO(resp.read()))
-
-df['2015'] = pd.read_csv(zf.open('2015.csv')); df['2016'] = pd.read_csv(zf.open('2016.csv'));
-df['2017'] = pd.read_csv(zf.open('2017.csv')); df['2018'] = pd.read_csv(zf.open('2018.csv'))
-df['2019'] = pd.read_csv(zf.open('2019.csv')); df['2020'] = pd.read_csv(zf.open('2020.csv'))
-df['2021'] = pd.read_csv(zf.open('2021.csv')); df['2022'] = pd.read_csv(zf.open('2022.csv'))
-
-st.write(df['2015'])
-st.write(df['2022'])
+with st.sidebar:
+    uploaded_files = st.file_uploader('CSV 파일을 업로드해주세요.', accept_multiple_files=True)
+# Check if files were uploaded
+if len(uploaded_files) > 0:
+    for uploaded_file in uploaded_files:
+        # If zip file, extract contents
+        if uploaded_file.type == 'application/x-zip-compressed':
+            zf = ZipFile(uploaded_file)
+            df['2015'] = pd.read_csv(zf.open('2015.csv')); df['2016'] = pd.read_csv(zf.open('2016.csv'));
+            df['2017'] = pd.read_csv(zf.open('2017.csv')); df['2018'] = pd.read_csv(zf.open('2018.csv'))
+            df['2019'] = pd.read_csv(zf.open('2019.csv')); df['2020'] = pd.read_csv(zf.open('2020.csv'))
+            df['2021'] = pd.read_csv(zf.open('2021.csv')); df['2022'] = pd.read_csv(zf.open('2022.csv'))
+            
+            st.write(df['2015'])
+            st.write(df['2022'])
+    
+        elif uploaded_file.type == 'text/csv':
+            uploaded_df = pd.read_csv(uploaded_file)
+            st.write(uploaded_df)
