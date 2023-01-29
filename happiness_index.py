@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import zipfile
 
+df = dict()
+
 with st.sidebar:
     uploaded_files = st.file_uploader('CSV 파일을 업로드해주세요.', accept_multiple_files=True)
 
@@ -12,11 +14,10 @@ if len(uploaded_files) > 0:
         if uploaded_file.type == 'application/zip':
             with zipfile.ZipFile(file, "r") as z:
                 z.extractall(".")
-                for csvs in z:
-                    uploaded_df = pd.read_csv(csvs)
-                    st.write(uploaded_df)
+                with z.open('2015.csv'):
+                    df['2015'] = pd.read_csv('2015.csv')
+                    st.write(df['2015'])
     
         elif uploaded_file.type == 'csv':
             uploaded_df = pd.read_csv(uploaded_file)
             st.write(uploaded_df)
-        
