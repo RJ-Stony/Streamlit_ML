@@ -24,3 +24,10 @@ if len(uploaded_files) > 0:
         elif uploaded_file.type == 'text/csv':
             uploaded_df = pd.read_csv(uploaded_file)
             st.write(uploaded_df)
+            
+st.download_button( 
+    label="Download data as CSV",
+    data=csv,
+    file_name='sample_df.csv',
+    mime='text/csv',
+)            
