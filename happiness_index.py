@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 with st.sidebar:
     uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
