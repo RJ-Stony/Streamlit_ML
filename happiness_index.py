@@ -5,6 +5,14 @@ import streamlit.components.v1 as components
 
 df = dict()
 
+with open('https://drive.google.com/file/d/1R17iOJIqiOsjKeU-cHZtzuCnyRCBgkwJ/view?usp=share_link', "rb") as fp:
+    btn = st.download_button(
+        label="Download ZIP",
+        data=fp,
+        file_name="myfile.zip",
+        mime='application/x-zip-compressed'
+    )
+
 with st.sidebar:
     uploaded_files = st.file_uploader('CSV 파일을 업로드해주세요.', accept_multiple_files=True)
 # Check if files were uploaded
@@ -25,9 +33,3 @@ if len(uploaded_files) > 0:
             uploaded_df = pd.read_csv(uploaded_file)
             st.write(uploaded_df)
             
-st.download_button( 
-    label="Download data as CSV",
-    data=csv,
-    file_name='sample_df.csv',
-    mime='text/csv',
-)            
