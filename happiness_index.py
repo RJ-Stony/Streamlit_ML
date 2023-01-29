@@ -12,7 +12,7 @@ if len(uploaded_files) > 0:
     for uploaded_file in uploaded_files:
         st.write(uploaded_file.type)
         # If zip file, extract contents
-        if uploaded_file.type == 'application/zip':
+        if uploaded_file.type == 'application/x-zip-compressed':
             zf = zipfile.ZipFile(uploaded_file)
             df['2015'] = pd.read_csv(zf.open('2015.csv'))
             st.write(df['2015'])
