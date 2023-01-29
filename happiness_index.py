@@ -12,7 +12,9 @@ if len(uploaded_files) > 0:
         if uploaded_file.type == 'application/zip':
             with zipfile.ZipFile(file, "r") as z:
                 z.extractall(".")
-                st.write(z)
+                for csvs in z:
+                    uploaded_df = pd.read_csv(csvs)
+                    st.write(uploaded_df)
     
         elif uploaded_file.type == 'csv':
             uploaded_df = pd.read_csv(uploaded_file)
