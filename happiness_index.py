@@ -42,26 +42,26 @@ def activate_tabs(df):
                 st.dataframe(df['2016'].columns, width=200)
             with col3:
                 st.title('2017' + ' Columns')
-                st.dataframe(df['2017'].columns)
+                st.dataframe(df['2017'].columns, width=200)
         with tab2:
             col1, col2, col3 = st.columns(3)
             with col1:
                 st.title('2018' + ' Columns')
-                st.dataframe(df['2018'].columns)
+                st.dataframe(df['2018'].columns, width=200)
             with col2:
                 st.title('2019' + ' Columns')
-                st.dataframe(df['2019'].columns)
+                st.dataframe(df['2019'].columns, width=200)
             with col3:
                 st.title('2020' + ' Columns')
-                st.dataframe(df['2020'].columns)
+                st.dataframe(df['2020'].columns, width=200)
         with tab3:
             col1, col2 = st.columns(2)
             with col1:
                 st.title('2021' + ' Columns')
-                st.dataframe(df['2021'].columns)
+                st.dataframe(df['2021'].columns, width=250)
             with col2:
                 st.title('2022' + ' Columns')
-                st.dataframe(df['2022'].columns)
+                st.dataframe(df['2022'].columns, width=250)
                 
 activate_sidebar(df)
 activate_tabs(df)
