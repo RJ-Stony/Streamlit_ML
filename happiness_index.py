@@ -6,7 +6,7 @@ import streamlit.components.v1 as components
 df = dict()
 
 with st.sidebar:
-    uploaded_files = st.file_uploader('CSV 파일을 업로드해주세요.', accept_multiple_files=True)
+    uploaded_files = st.file_uploader('CSV 파일 혹은 ZIP 파일을 업로드해주세요.', accept_multiple_files=True)
 # Check if files were uploaded
 if len(uploaded_files) > 0:
     for uploaded_file in uploaded_files:
