@@ -27,7 +27,7 @@ def activate_sidebar(df):
                 st.write(uploaded_df)
 
 def activate_tabs(df):
-    if !df:
+    if not df:
         st.error('파일을 업로드해주세요!', icon="🚨")
         
     tab1, tab2, tab3 = st.tabs(['2015 / 2016 / 2017', '2018 / 2019 / 2020', '2021 / 2022'])
