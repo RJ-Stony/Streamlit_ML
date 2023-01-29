@@ -10,13 +10,13 @@ with st.sidebar:
 # Check if files were uploaded
 if len(uploaded_files) > 0:
     for uploaded_file in uploaded_files:
+        print(uploaded_file.type)
         # If zip file, extract contents
         if uploaded_file.type == 'application/zip':
             zf = zipfile.ZipFile(uploaded_file)
             df['2015'] = pd.read_csv(zf.open('2015.csv'))
             st.write(df['2015'])
     
-        else:
-            st.write(uploaded_file.type)
+        elif uploaded_file.type == 'text/csv':
             uploaded_df = pd.read_csv(uploaded_file)
             st.write(uploaded_df)
