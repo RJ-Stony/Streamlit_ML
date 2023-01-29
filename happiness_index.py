@@ -3,9 +3,6 @@ import pandas as pd
 from zipfile import ZipFile
 import streamlit.components.v1 as components
 
-#use domain name
-components.iframe('www.naver.com')
-
 df = dict()
 
 with st.sidebar:
