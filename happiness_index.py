@@ -5,7 +5,7 @@ import streamlit.components.v1 as components
 
 df = dict()
 
-def activate_sidebar():
+def activate_sidebar(df):
     with st.sidebar:
         uploaded_files = st.file_uploader('CSV 파일 혹은 ZIP 파일을 업로드해주세요.', accept_multiple_files=True)
     # Check if files were uploaded
@@ -26,7 +26,7 @@ def activate_sidebar():
                 uploaded_df = pd.read_csv(uploaded_file)
                 st.write(uploaded_df)
 
-def activate_tabs():
+def activate_tabs(df):
     tab1, tab2, tab3 = st.tabs(['2015 / 2016 / 2017', '2018 / 2019 / 2020', '2021 / 2022'])
 
     with tab1:
@@ -60,5 +60,5 @@ def activate_tabs():
             st.title('2022' + ' Columns')
             st.dataframe(df['2022'].columns)
                 
-activate_sidebar()
-activate_tabs()
+activate_sidebar(df)
+activate_tabs(df)
