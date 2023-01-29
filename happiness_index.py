@@ -4,7 +4,7 @@ from zipfile import ZipFile
 import streamlit.components.v1 as components
 
 #use domain name
-components.iframe('https://drive.google.com/file/d/1R17iOJIqiOsjKeU-cHZtzuCnyRCBgkwJ/view?usp=share_link')
+components.iframe('www.naver.com')
 
 df = dict()
 
